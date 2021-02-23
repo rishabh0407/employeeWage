@@ -45,9 +45,10 @@ do
          hoursWorkedfinal="$( hours $(( RANDOM % 3 )) )"
          totalHoursWorked=$(($totalHoursWorked+$hoursWorkedfinal));
          ((workingDays++))
-          empDailyWage[$maxDays]="$( calculateWage $hoursWorkedfinal)"
+          empDailyWage["Day "$maxDays]="$( calculateWage $hoursWorkedfinal)"
 done
 monthlySalary="$( calculateWage $maxHours )"
 echo "Daily wage ${empDailyWage[@]}"
 totalSalary=$(($totalHoursWorked*$workingDays));
 echo $totalSalary
+echo "keys are: ${!empDailyWage[@]}"
