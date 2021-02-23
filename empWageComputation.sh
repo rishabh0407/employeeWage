@@ -31,12 +31,23 @@ case $1 in
 
 }
 
+
+function calculateWage()
+{
+workingHours=$1;
+wage=$(( workingHours * ratePerhour ));
+echo $wage
+}
+
+
 while (( $workingDays<=maxDays && $totalHoursWorked<=$maxHours ))
 do
-         hoursWorkedFinal="$( hours $(( RANDOM % 3 )) )"
-         totalHoursWorked=$(($totalHoursWorked+$hoursWorkedFinal));
-         salary=$(($hoursWorkedFinal * $ratePerhour));
-         monthlySalary=$(($monthlySalary+$salary));
-         ((workingDays++));
+         hoursWorkedfinal="$( hours $(( RANDOM % 3 )) )"
+         totalHoursWorked=$(($totalHoursWorked+$hoursWorkedfinal));
+         ((workingDays++))
+          empDailyWage[$maxDays]="$( calculateWage $hoursWorkedfinal)"
 done
-echo "Monthly Salary=" $monthlySalary
+monthlySalary="$( calculateWage $maxHours )"
+echo "Daily wage ${empDailyWage[@]}"
+totalSalary=$(($totalHoursWorked*$workingDays));
+echo $totalSalary
