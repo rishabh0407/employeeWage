@@ -1,3 +1,5 @@
 #!/bin/bash -x
 
-echo "Welcome to the world of git"
+echo "Welcome to Employee"
+echo "Wage Computation"
+echo "Program on Master Branch"
