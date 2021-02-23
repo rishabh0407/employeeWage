@@ -13,7 +13,6 @@ totalHours=0;
 workingDays=0;
 totalHoursWorked=0;
 
-declare -A empDailyWage
 function hours()
 {
 case $1 in
