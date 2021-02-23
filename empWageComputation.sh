@@ -5,9 +5,11 @@ isParttime=1;
 ratePerhour=20;
 workingDays=1;
 maxDays=20;
-while (( $workingDays<=maxDays ))
+maxHours=8;
+totalHoursWorked=0;
+while (( $workingDays<=maxDays && $totalHoursWorked<=maxHours))
 do
-    employeeCheck=$(($RANDOM%3));
+    employeeCheck=$(( $RANDOM%3 ));
       case $employeeCheck in
          $isFulltime)
                 hoursWorked=8
@@ -22,6 +24,7 @@ esac
 
 salary=$(($hoursWorked * $ratePerhour));
 monthlySalary=$(($totalSalary+$salary));
+totalHoursWorked=$(($totalHoursWorked+$hoursWorked));
 ((workingDays++));
 done
 
