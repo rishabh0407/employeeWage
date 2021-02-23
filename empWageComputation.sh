@@ -1,15 +1,16 @@
 #!/bin/bash -x
 
-random=$(( RANDOM % 2 ))
-ispresent=0;
-wagePerHour=20;
-hoursWorked=8;
-if(( $random == $ispresent ));
-then 
-     salary=$(( $wagePerHour * $hoursWorked ));
-     echo "Present"
-     echo  "Salary=" $salary
-else
-     echo "Absent"
-     echo "Salary=0"
-fi
+isFulltime=0;
+isParttime=1;
+ratePerhour=20;
+randomCheck=$(( $RANDOM % 3 ));
+case $randomCheck in
+    $isFulltime)hoursWorked=8
+                ;;
+    $isParttime)hoursWorked=4
+                ;;
+    *)hoursWorked=0
+                ;;
+esac
+
+salary=$(($hoursWorked * $ratePerhour));
