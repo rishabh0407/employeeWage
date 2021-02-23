@@ -1,5 +1,10 @@
 #!/bin/bash -x
 
-echo "Welcome to Employee"
-echo "Wage Computation"
-echo "Program on Master Branch"
+random=$(( RANDOM % 2 ))
+ispresent=0;
+if(( $random == $ispresent ));
+then 
+     echo "Present"
+else
+     echo "Absent"
+fi
